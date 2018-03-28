@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>最近傍駅検索</title>
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css"/>
+   <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+   <div id="map"></div>
+   <div id="gnss">
+      <p>自己位置</p>
+      <button type="button" id="gnss_on" value="on" onclick="lock_on();" >on</button>
+   </div>
+   <script src="https://d3js.org/d3.v4.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet-src.js"></script>
+   <script src="https://unpkg.com/geojson-vt@3.0.0/geojson-vt.js"></script>
+   <script src="js/main.js"></script>
+</body>
+</html>
