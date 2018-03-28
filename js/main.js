@@ -15,6 +15,24 @@ L.tileLayer(
 
 map._initPathRoot();
 
+const centerCross = L.icon({
+   iconUrl: "img/cross.png",
+   iconSize: [32, 32],
+   iconAnchor: [16, 16]
+});
+
+const crossHair = new L.marker(
+   map.getCenter(),
+   {
+      icon: centerCross,
+      clickable: false
+   }
+).addTo(map);
+
+map.on("move", e => {
+   crossHair.setLatLng(map.getCenter());
+})
+
 const voronoi = d3.voronoi()
    .x(d => { return d.x; })
    .y(d => { return d.y; });
@@ -84,7 +102,8 @@ drawVoronoi = data => {
          .on("click", function(d) {
             const mouseCoords = d3.mouse(this);
             addLabel(mouseCoords[0], mouseCoords[1], d.data.name);
-         })
+         });
+
    };
 
    map.on("moveend", update);
@@ -114,3 +133,4 @@ lock_on = () => {
 
    const GNSS_here = navigator.geolocation.getCurrentPosition(here_ok, here_ng, lock_opt);
 }
+
