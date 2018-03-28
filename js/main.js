@@ -106,7 +106,10 @@ drawVoronoi = data => {
 
    };
 
-   map.on("moveend", update);
+   map.on("moveend", e => {
+      update();
+      d3.selectAll(".stationLabel").remove();
+   });
 
    update();
 };
